@@ -86,9 +86,9 @@ rpcport=8332
 rpcallowip=172.24.173.0/24
 
 建立存储目录
-#mkdir /bitcoindata/root/.bitcoin/./bitcoin.conf
+#mkdir /bitcoindata
 启动服务器节点代码
-bitcoind -conf=/root/.bitcoin/./bitcoin.conf -datadir=~/bitcoindata
+bitcoind -conf=/root/.bitcoin/./bitcoin.conf -datadir=/bitcoindata
 
 测试rpc接口是否工作
 ./bitcoin-cli -conf=/root/.bitcoin/./bitcoin.conf  -getinfo
