@@ -102,7 +102,43 @@ bitcoind -conf=bitcoin.conf
   "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
 }
 测试是否启动且工作正常
+apt install jq
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
+curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest20200520", "method": "getblockhash", "params": [300000] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
+curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest20200520", "method": "getblock", "params": ["000000000000000082ccf8f1557c5d40b21edabb18d2d691cfbf87118bac7254"] }' -H 'content-type: application/json;' http://127.0.0.1:8332 > ana.json
+jq . ana.json
+
+{
+  "result": {
+    "hash": "000000000000000082ccf8f1557c5d40b21edabb18d2d691cfbf87118bac7254",
+    "confirmations": 47641,
+    "strippedsize": 128810,
+    "size": 128810,
+    "weight": 515240,
+    "height": 300000,
+    "version": 2,
+    "versionHex": "00000002",
+    "merkleroot": "915c887a2d9ec3f566a648bedcf4ed30d0988e22268cfe43ab5b0cf8638999d3",
+    "tx": [
+      "b39fa6c39b99683ac8f456721b270786c627ecb246700888315991877024b983",
+      "7301b595279ece985f0c415e420e425451fcf7f684fcce087ba14d10ffec1121",
+      ...
+           "9a23b701a614b81746c0a44caa8b393844f94aaa8a13b57666a6813464e72f94",
+      "3b115dcc8a5d1ae060b9be8bdfc697155f6cf40f10bbfb8ab22d14306a9828cb"
+    ],
+    "time": 1399703554,
+    "mediantime": 1399701278,
+    "nonce": 222771801,
+    "bits": "1900896c",
+    "difficulty": 8000872135.968163,
+    "chainwork": "000000000000000000000000000000000000000000005a7b3c42ea8b844374e9",
+    "nTx": 237,
+    "previousblockhash": "000000000000000067ecc744b5ae34eebbde14d21ca4db51652e4d67e155f07e",
+    "nextblockhash": "000000000000000049a0914d83df36982c77ac1f65ade6a52bdced2ce312aba9"
+  },
+  "error": null,
+  "id": "curltest20200520"
+}
 注意点
 1  bitcoin-cli命令执行， 看到输出中的conf文件和自己命令行的conf文件是否相同,---将conf文件放到程序默认的路径中。
 2  conf中放开注释 rpc？=127.0.0.1
