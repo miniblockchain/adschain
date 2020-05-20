@@ -68,25 +68,29 @@
   - [ ] [开发](https://github.com/miniblockchain/btc-monitor)
 ```
 安装
-sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt-get update
-sudo apt-get install bitcoind
-
+参看文档  https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+sudo apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+sudo apt-get install libevent-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev
+./autogen.sh
+./configure --disable-wallet
+make
+make install
 配置文件
-bitcoin.conf
+#cat /root/.bitcoin/./bitcoin.conf
 daemon=1
 txindex=1
 server=1
 rpcuser=dylan
 rpcpassword=123456
 rpcport=8332
-rpcallowip=192.168.1.0/24
+rpcallowip=172.24.173.0/24
 
-启动
-bitcoind -conf=bitcoin.conf -datadir=~/.bitcoin
-or
-bitcoind -conf=bitcoin.conf
-测试
+建立存储目录
+#mkdir /bitcoindata/root/.bitcoin/./bitcoin.conf
+启动服务器节点代码
+bitcoind -conf=/root/.bitcoin/./bitcoin.conf -datadir=~/bitcoindata
+
+测试rpc接口是否工作
 ./bitcoin-cli -conf=/root/.bitcoin/./bitcoin.conf  -getinfo
 {
   "version": 209900,
@@ -101,7 +105,7 @@ bitcoind -conf=bitcoin.conf
   "relayfee": 0.00001000,
   "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
 }
-测试是否启动且工作正常
+调用httprpc接口
 apt install jq
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest20200520", "method": "getblockhash", "params": [300000] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
@@ -140,12 +144,8 @@ jq . ana.json
   "id": "curltest20200520"
 }
 注意点
-1  bitcoin-cli命令执行， 看到输出中的conf文件和自己命令行的conf文件是否相同,---将conf文件放到程序默认的路径中。
-2  conf中放开注释 rpc？=127.0.0.1
-3  查看log文件的报错信息
-4  提示中说要reindex， 执行以下即可， 似乎是做了标志， 在重新启动后重建index.
+  每步骤需要进入相应目录
 
-5  用bitcoin-cli调试。
 ```
 
   - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
