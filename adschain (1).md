@@ -86,7 +86,21 @@ rpcallowip=192.168.1.0/24
 bitcoind -conf=bitcoin.conf -datadir=~/.bitcoin
 or
 bitcoind -conf=bitcoin.conf
-
+测试
+./bitcoin-cli -conf=/root/.bitcoin/./bitcoin.conf  -getinfo
+{
+  "version": 209900,
+  "blocks": 312464,
+  "headers": 631034,
+  "verificationprogress": 0.08140677370617566,
+  "timeoffset": 0,
+  "connections": 10,
+  "proxy": "",
+  "difficulty": 17336316978.50783,
+  "chain": "main",
+  "relayfee": 0.00001000,
+  "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
+}
 测试是否启动且工作正常
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
 注意点
