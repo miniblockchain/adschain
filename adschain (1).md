@@ -66,6 +66,7 @@
   - [钱包使用](https://www.youtube.com/watch?v=YN2Vyu9RupU)
 - [ ] 落地
   - [ ] [开发](https://github.com/miniblockchain/btc-monitor)
+  - [ ] [bitcoin早期版本](https://github.com/bitcoin/bitcoin/releases?after=v0.3.12)
   - [ ] [rpc api index](https://www.blockchain.com/es/api/json_rpc_api)
 ```
 安装
