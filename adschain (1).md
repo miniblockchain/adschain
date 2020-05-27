@@ -68,7 +68,7 @@
   - [ ] [开发](https://github.com/miniblockchain/btc-monitor)
   - [ ] [bitcoin早期版本](https://github.com/bitcoin/bitcoin/releases?after=v0.3.12)
   - [ ] [rpc api index](https://www.blockchain.com/es/api/json_rpc_api)
-  - [ ] [math about bitcoin] (https://github.com/miniblockchain/adschain/blob/master/bitcoin%20ecc%20pgp%20openssl.md)
+  - [ ] [math about bitcoin](https://github.com/miniblockchain/adschain/blob/master/bitcoin%20ecc%20pgp%20openssl.md)
 ```
 安装
 参看文档  https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
