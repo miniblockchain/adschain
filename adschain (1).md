@@ -173,6 +173,7 @@ jq . ana.json
 步骤 3
 ```
   使用bitcoin-cli进行交易， 且能rpc调用查询到信息。
+  参考文档 https://livebook.manning.com/book/grokking-bitcoin/a-using-bitcoin-cli/v-6/1
 ```
   - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
