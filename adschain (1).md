@@ -150,7 +150,30 @@ jq . ana.json
   每步骤需要进入相应目录
 
 ```
-
+定制bitcoin, 步骤1
+```
+  #将相应节点注释掉, 参看/root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src/chainparams.cpp  
+  vi chainparams.cpp  ， 
+  #默认参数启动bitcoind         
+  ./bitcoind &
+  #确认bitcoind在后台运行       
+  ps -eaf |grep bitcoind
+  #查询bitcoind打开的资源       
+  lsof|grep bitcoind
+  #实时查看bitcoind的日志文件    
+  tail -f /root/.bitcoin/debug.log
+  #进入相应目录， 查看同步数据状况 cd /root/.bitcoin/blocks
+  watch ls -l
+  
+```
+步骤 2
+```
+  跑起来两个节点，互相通过 chainparams.cpp指向对方，仅这两台节点之间同步块信息，且能rpc调用
+```
+步骤 3
+```
+  使用bitcoin-cli进行交易， 且能且pc调用查询到信息。
+```
   - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
 
