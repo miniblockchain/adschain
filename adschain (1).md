@@ -175,7 +175,10 @@ jq . ana.json
   使用bitcoin-cli进行交易， 且能rpc调用查询到信息。
   参考文档 https://livebook.manning.com/book/grokking-bitcoin/a-using-bitcoin-cli/v-6/1
 ```
-  - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
+定制bitcoin方法2
+    - [ ] [reference](https://developer.bitcoin.org/examples/testing.html)
+  
+ - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
 
 ## 2nd generation blockchain
