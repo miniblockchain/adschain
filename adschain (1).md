@@ -176,7 +176,8 @@ jq . ana.json
   参考文档 https://livebook.manning.com/book/grokking-bitcoin/a-using-bitcoin-cli/v-6/1
 ```
 定制bitcoin方法2
-    - [ ] [reference](https://developer.bitcoin.org/examples/testing.html)
+/root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src
+ - [ ] [reference doc ](https://developer.bitcoin.org/examples/testing.html)
   
  - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
