@@ -74,8 +74,9 @@
 参看文档  https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
 sudo apt-get install libevent-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev
+sh contrib/install_db4.sh
 ./autogen.sh
-./configure --disable-wallet
+./configure  
 make
 make install
 配置文件
