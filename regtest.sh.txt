@@ -1,0 +1,86 @@
+#bitcoin-cli -regtest getnewaddress
+#NEW_ADDRESS=bcrt1qmzlrc4ce9alkgqsqh8qz8nfv80ayzyw2yh5amw
+#bitcoin-cli -regtest settxfee 0.01
+#for ((i=1; i<=1000; i ++))
+do
+        bitcoin-cli -regtest sendtoaddress $NEW_ADDRESS 0.00001
+done
+
+4ac340d70f509b06be6cb3381f26694db555420e67e89dfd28cfe79426cc2967
+bcd879c40470edc4664fa89414a2f982a2d7d7a7ccadac8c80aaca6d4e6d2cfa
+59e48c90aff831381290bdd1ccfc46f42f02c64c0e320956b5737eb131aebb44
+318b954d61d92a4d69f7e2033431c207a4288a45953da6b5da72d4a5116f145a
+0a1418eae3682df1a757baa0236fa477f4d6897347e63ee33673b3213f716a9e
+ee435f799e6aff1feeca40b53a2fa2cd1bd24fe34985d5caabba29a66a46625b
+54ca5f91c56b32eec688c89e049c20fb47ef2d00104660e1552fb0236aa54434
+15acb4526f1344a12086f5a914ef37f109fa3319dbbcdba7bf5ea4876ff7284e
+5b10c2e32e0f81d5665a55f9a2f51b43454c58ad70c6f01fc09b3ffa9cc80747
+65f73eda6baba3a14abd7b3031163def3a88022be3dd28a807f38cc8785fe4f4
+f02ff60c0630d9c53e01dd93db9cdd79bb7423dc4e9816c4d3ab6897abacfdfc
+
+
+#bitcoin-cli -regtest getblockcount
+203
+#bitcoin-cli -regtest getblockhash 203
+3e539c8b29c6f9a46282371e7879ed4c6ca58f6c8a6a77943079e1c1a1f8833f
+# bitcoin-cli -regtest getblock 3e539c8b29c6f9a46282371e7879ed4c6ca58f6c8a6a77943079e1c1a1f8833f |more
+{
+  "hash": "3e539c8b29c6f9a46282371e7879ed4c6ca58f6c8a6a77943079e1c1a1f8833f",
+  "confirmations": 1,
+  "strippedsize": 215,
+  "size": 251,
+  "weight": 896,
+  "height": 203,
+  "version": 805306368,
+  "versionHex": "30000000",
+  "merkleroot": "60c7f4627289cabd837ed0fa7b4b26c560c7887ba5bc740cfa84decb29e8930
+3",
+  "tx": [
+    "60c7f4627289cabd837ed0fa7b4b26c560c7887ba5bc740cfa84decb29e89303"
+  ],
+  "time": 1593519869,
+  "mediantime": 1593519869,
+  "nonce": 0,
+  "bits": "207fffff",
+  "difficulty": 4.656542373906925e-10,
+  "chainwork": "0000000000000000000000000000000000000000000000000000000000000198
+",
+  "nTx": 1,
+  "previousblockhash": "399e8cf0f7d0d0fe26c3c350f74d33e99ae72c298500afab4647ba2f
+b4ddd6fb"
+}
+
+
+
+# bitcoin-cli -regtest gettransaction 4ac340d70f509b06be6cb3381f26694db555420e67e89dfd28cfe79426cc2967
+{
+  "amount": 0.00000000,
+  "fee": -0.00141000,
+  "confirmations": 0,
+  "trusted": true,
+  "txid": "4ac340d70f509b06be6cb3381f26694db555420e67e89dfd28cfe79426cc2967",
+  "walletconflicts": [
+  ],
+  "time": 1593521183,
+  "timereceived": 1593521183,
+  "bip125-replaceable": "no",
+  "details": [
+    {
+      "address": "bcrt1qmzlrc4ce9alkgqsqh8qz8nfv80ayzyw2yh5amw",
+      "category": "send",
+      "amount": -0.00001000,
+      "label": "",
+      "vout": 0,
+      "fee": -0.00141000,
+      "abandoned": false
+    },
+    {
+      "address": "bcrt1qmzlrc4ce9alkgqsqh8qz8nfv80ayzyw2yh5amw",
+      "category": "receive",
+      "amount": 0.00001000,
+      "label": "",
+      "vout": 0
+    }
+  ],
+  "hex": "02000000000101cb92111083fdfda7fb788263e2613774440d6a66a97773707b71ee9d6d2be7c10100000000feffffff02e803000000000000160014d8be3c57192f7f640200b9c023cd2c3bfa4111cad071f229010000001600148906acd402952c7408f42f25f1946f3f99b8cad70247304402204527401c231a26003a3205ac9941fe76d5920cf6b1812eae7b87dd4258fa2a9e02200449e9c4c4e781b2ba569679f78c9be61064e8536cdab2f305bc0d1ba7c130560121022bb84576844764bb6ce9c50c9dbac6ff60153020d732b86028495c1b419e07becb000000"
+}
