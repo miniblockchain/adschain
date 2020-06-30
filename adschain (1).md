@@ -81,7 +81,7 @@ sh contrib/install_db4.sh
 make
 make install
 配置文件
-#cat /root/.bitcoin/./bitcoin.conf
+#cat /root/.bitcoin/./bitcoin.conf<<EOF
 daemon=1
 txindex=1
 server=1
@@ -89,13 +89,13 @@ rpcuser=dylan
 rpcpassword=123456
 rpcport=8332
 rpcallowip=172.24.173.0/24
-
-建立存储目录
-#mkdir /bitcoindata
-启动服务器节点代码
+EOF
+#建立存储目录
+mkdir /bitcoindata
+#启动服务器节点代码
 bitcoind -conf=/root/.bitcoin/./bitcoin.conf -datadir=/bitcoindata
 
-测试rpc接口是否工作
+#测试rpc接口是否工作
 ./bitcoin-cli -conf=/root/.bitcoin/./bitcoin.conf  -getinfo
 {
   "version": 209900,
@@ -110,7 +110,7 @@ bitcoind -conf=/root/.bitcoin/./bitcoin.conf -datadir=/bitcoindata
   "relayfee": 0.00001000,
   "warnings": "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications"
 }
-调用httprpc接口
+#调用httprpc接口
 apt install jq
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
 curl --user dylan:123456 --data-binary '{"jsonrpc": "1.0", "id":"curltest20200520", "method": "getblockhash", "params": [300000] }' -H 'content-type: application/json;' http://127.0.0.1:8332 
