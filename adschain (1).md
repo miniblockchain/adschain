@@ -69,9 +69,10 @@
   - [ ] [bitcoin早期版本](https://github.com/bitcoin/bitcoin/releases?after=v0.3.12)
   - [ ] [读bitcoin blockchain](https://www.blockchain.com/es/api/json_rpc_api)
   - [ ] [写bitcoin blockchain](https://github.com/miniblockchain/adschain/blob/master/bitcoin%20ecc%20pgp%20openssl.md)
-```
+#### 实现
 安装
 参看文档  https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+```
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config bsdmainutils python3
 sudo apt-get install libevent-dev libboost-system-dev libboost-filesystem-dev libboost-test-dev libboost-thread-dev
 sh contrib/install_db4.sh
