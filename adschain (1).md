@@ -179,7 +179,23 @@ jq . ana.json
 定制bitcoin方法2
 /root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src
  - [ ] [reference doc ](https://developer.bitcoin.org/examples/testing.html)
-  
+```
+> bitcoind -regtest -daemon
+Bitcoin server starting
+## Bitcoin Core 18.0 and later
+bitcoin-cli -regtest generatetoaddress 101 $(bitcoin-cli -regtest getnewaddress)
+bitcoin-cli -regtest getbalance
+50.00000000
+> bitcoin-cli -regtest getnewaddress
+mvbnrCX3bg1cDRUu8pkecrvP6vQkSLDSou
+
+> NEW_ADDRESS=mvbnrCX3bg1cDRUu8pkecrvP6vQkSLDSou
+Get a new Bitcoin address and save it in the shell variable $NEW_ADDRESS.
+
+> bitcoin-cli -regtest sendtoaddress $NEW_ADDRESS 10.00
+263c018582731ff54dc72c7d67e858c002ae298835501d80200f05753de0edf0
+
+```
  - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
 
