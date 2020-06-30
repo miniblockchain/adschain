@@ -152,7 +152,8 @@ jq . ana.json
   每步骤需要进入相应目录
 
 ```
-定制bitcoin, 步骤1
+#### 实现方案1 
+步骤1
 ```
   #将相应节点注释掉, 参看/root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src/chainparams.cpp  
   vi chainparams.cpp  ， 
@@ -177,8 +178,8 @@ jq . ana.json
   使用bitcoin-cli进行交易， 且能rpc调用查询到信息。
   参考文档 https://livebook.manning.com/book/grokking-bitcoin/a-using-bitcoin-cli/v-6/1
 ```
-定制bitcoin方法2
-/root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src
+#### 实现方案2 
+可以使用此处编译二进制文件 /root/develop/bitcoin/bitcoin-v0.7.2rc2/bitcoin/src
  - [ ] [reference doc ](https://developer.bitcoin.org/examples/testing.html)
 ```
 > bitcoind -regtest -daemon
@@ -197,6 +198,7 @@ Get a new Bitcoin address and save it in the shell variable $NEW_ADDRESS.
 263c018582731ff54dc72c7d67e858c002ae298835501d80200f05753de0edf0
 
 ```
+
  - [ ] [定制借鉴dashcoin](https://github.com/dashpay/dash)
 
 
