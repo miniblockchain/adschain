@@ -84,3 +84,24 @@ b4ddd6fb"
   ],
   "hex": "02000000000101cb92111083fdfda7fb788263e2613774440d6a66a97773707b71ee9d6d2be7c10100000000feffffff02e803000000000000160014d8be3c57192f7f640200b9c023cd2c3bfa4111cad071f229010000001600148906acd402952c7408f42f25f1946f3f99b8cad70247304402204527401c231a26003a3205ac9941fe76d5920cf6b1812eae7b87dd4258fa2a9e02200449e9c4c4e781b2ba569679f78c9be61064e8536cdab2f305bc0d1ba7c130560121022bb84576844764bb6ce9c50c9dbac6ff60153020d732b86028495c1b419e07becb000000"
 }
+
+
+
+error code: -4
+error message:
+Fee exceeds maximum configured by -maxtxfee
+f80e9de6e9b69a16a4cae63658c83e7f31e4d636a33e41c5cdccd387e6817a66
+8bbbb59d8c15fbdd770356514f7a37b8c9c0ddb4d9b3c965c0565485387e3a2e
+error code: -4
+error message:
+Fee exceeds maximum configured by -maxtxfee
+f2c9ddbabd90c76639ccc0c051a5c741ef36eac952232f95a941e9ef7fb54857
+error code: -4
+error message:
+Fee exceeds maximum configured by -maxtxfee
+error code: -4
+error message:
+Fee exceeds maximum configured by -maxtxfee
+error code: -4
+error message:
+Fee exceeds maximum configured by -maxtxfee
