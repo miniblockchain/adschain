@@ -1,0 +1,236 @@
+docker pull freewil/bitcoin-testnet-box
+    
+docker run -t -i --name bitcoind -P -p 49020:19000 freewil/bitcoin-testnet-box
+    
+make start
+
+
+[root@centos1 ~]# docker ps
+CONTAINER ID        IMAGE                         COMMAND             CREATED             STATUS              PORTS                                                    
+
+                      NAMES
+3ad09512dcf8        freewil/bitcoin-testnet-box   "/bin/bash"         11 minutes ago      Up 11 minutes       0.0.0.0:49020->19000/tcp, 0.0.0.0:32769->19001/tcp, 0.
+
+[root@centos1 ~]# docker exec -it 3ad09512dcf8 bash
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ pwd
+/home/tester/bitcoin-testnet-box
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ ls
+.  ..  .git  .gitignore  1  2  Dockerfile  LICENSE  Makefile  README.md
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ ps -eaf|grep bitcoin
+tester       19      1  0 01:46 ?        00:00:03 bitcoind -datadir=1 -daemon
+tester       21      1  0 01:46 ?        00:00:03 bitcoind -datadir=2 -daemon
+tester       74     58  0 01:58 ?        00:00:00 grep --color=auto bitcoin
+
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ make getinfo
+bitcoin-cli -datadir=1  -getinfo
+{
+  "version": 170100,
+  "protocolversion": 70015,
+  "walletversion": 169900,
+  "balance": 0.00000000,
+  "blocks": 0,
+  "timeoffset": 0,
+  "connections": 1,
+  "proxy": "",
+  "difficulty": 4.656542373906925e-10,
+  "testnet": false,
+  "keypoololdest": 1593654029,
+  "keypoolsize": 1000,
+  "paytxfee": 0.00000000,
+  "relayfee": 0.00001000,
+  "warnings": ""
+}
+bitcoin-cli -datadir=2  -getinfo
+{
+  "version": 170100,
+  "protocolversion": 70015,
+  "walletversion": 169900,
+  "balance": 0.00000000,
+  "blocks": 0,
+  "timeoffset": 0,
+  "connections": 1,
+  "proxy": "",
+  "difficulty": 4.656542373906925e-10,
+  "testnet": false,
+  "keypoololdest": 1593654030,
+  "keypoolsize": 1000,
+  "paytxfee": 0.00000000,
+  "relayfee": 0.00001000,
+  "warnings": ""
+}
+
+
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ make address1      
+bitcoin-cli -datadir=1  getnewaddress 
+2NDPf4yF4AJopX4sL7SiDK4Lr85fCAEr5kF
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ make address2
+bitcoin-cli -datadir=2  getnewaddress 
+2ND3dJ1vob7sgodHfQtEjfMzCEVLRXZJMvu
+
+
+ester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockcount
+0
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 generateblock
+error code: -32601
+error message:
+Method not found
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ make generate
+bitcoin-cli -datadir=1  generate 1
+[
+  "3f3aae0d7a12c0cade1a32f7a2cd5a084c4e6ea923fc91549bd628a68026311e"
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockcount
+1
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ 
+
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 generate 1
+[
+  "33ef75d822b2244a0a5cd3bdec3eb874f46ead09c735dc87239772d16ba62e3a"
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockcount
+2
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ 
+
+
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listaccounts
+error code: -32
+error message:
+listaccounts is deprecated and will be removed in V0.18. To use this command, start bitcoind with -deprecatedrpc=accounts.
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listunspent 
+[
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listaddressgroupings
+[
+  [
+    [
+      "muasPzrzctz6mnpVquazUqX2syK1TcW5ee",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "mz6wf6DNHb3ygwq23eBUoxBaHsdfRYghfK",
+      0.00000000
+    ]
+  ]
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getbestblockhash    
+33ef75d822b2244a0a5cd3bdec3eb874f46ead09c735dc87239772d16ba62e3a
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockcount   
+2
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockhash 2
+33ef75d822b2244a0a5cd3bdec3eb874f46ead09c735dc87239772d16ba62e3a
+
+
+
+
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockstats 2
+{
+  "avgfee": 0,
+  "avgfeerate": 0,
+  "avgtxsize": 0,
+  "blockhash": "33ef75d822b2244a0a5cd3bdec3eb874f46ead09c735dc87239772d16ba62e3a",
+  "feerate_percentiles": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "height": 2,
+  "ins": 0,
+  "maxfee": 0,
+  "maxfeerate": 0,
+  "maxtxsize": 0,
+  "medianfee": 0,
+  "mediantime": 1593655479,
+  "mediantxsize": 0,
+  "minfee": 0,
+  "minfeerate": 0,
+  "mintxsize": 0,
+  "outs": 2,
+  "subsidy": 5000000000,
+  "swtotal_size": 0,
+  "swtotal_weight": 0,
+  "swtxs": 0,
+  "time": 1593655557,
+  "total_out": 0,
+  "total_size": 0,
+  "total_weight": 0,
+  "totalfee": 0,
+  "txs": 1,
+  "utxo_increase": 2,
+  "utxo_size_inc": 173
+}
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 generatetoaddress 1 muasPzrzctz6mnpVquazUqX2syK1TcW5ee
+[
+  "01ff81d97e7837e4f8cc990c574f3a97bbe23ab060b856a24a3458de91200ee6"
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getblockcount
+3
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 getbanlance  
+error code: -32601
+error message:
+Method not found
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ 
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listtransactions
+[
+  {
+    "address": "mz6wf6DNHb3ygwq23eBUoxBaHsdfRYghfK",
+    "category": "immature",
+    "amount": 50.00000000,
+    "vout": 0,
+    "confirmations": 3,
+    "generated": true,
+    "blockhash": "3f3aae0d7a12c0cade1a32f7a2cd5a084c4e6ea923fc91549bd628a68026311e",
+    "blockindex": 0,
+    "blocktime": 1593655479,
+    "txid": "8fe4222eb28cc3a163b7a4a842d5afccadbd25749cfa3ca6326b117287e91867",
+    "walletconflicts": [
+    ],
+    "time": 1593655479,
+    "timereceived": 1593655479,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "muasPzrzctz6mnpVquazUqX2syK1TcW5ee",
+    "category": "immature",
+    "amount": 50.00000000,
+    "vout": 0,
+    "confirmations": 2,
+    "generated": true,
+    "blockhash": "33ef75d822b2244a0a5cd3bdec3eb874f46ead09c735dc87239772d16ba62e3a",
+    "blockindex": 0,
+    "blocktime": 1593655557,
+    "txid": "18966c53b6fe98a078b7f1f03ce7a4890fecc6957b62b3fb1de379bdf7e290db",
+    "walletconflicts": [
+    ],
+    "time": 1593655557,
+    "timereceived": 1593655557,
+    "bip125-replaceable": "no"
+  },
+  {
+    "address": "muasPzrzctz6mnpVquazUqX2syK1TcW5ee",
+    "category": "immature",
+    "amount": 50.00000000,
+    "vout": 0,
+    "confirmations": 1,
+    "generated": true,
+    "blockhash": "01ff81d97e7837e4f8cc990c574f3a97bbe23ab060b856a24a3458de91200ee6",
+    "blockindex": 0,
+    "blocktime": 1593656498,
+    "txid": "01b55116f113b89ed382a140eb3be5a1d6052628c783ce7577e75adfc5fd054f",
+    "walletconflicts": [
+    ],
+    "time": 1593656498,
+    "timereceived": 1593656498,
+    "bip125-replaceable": "no"
+  }
+]
+tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listwallets     
+[
+  ""
+]
+
+
+
