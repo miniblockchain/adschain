@@ -232,5 +232,145 @@ tester@3ad09512dcf8 ~/bitcoin-testnet-box$ bitcoin-cli -datadir=1 listwallets
   ""
 ]
 
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest getnewaddress
+bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2
 
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest gettransaction 06dfd110dc580e8b8ae37d35f7a196a2a490813ba519af1db010696226d67800
+{
+  "amount": 0.00000000,
+  "fee": -0.00014100,
+  "confirmations": 0,
+  "trusted": true,
+  "txid": "06dfd110dc580e8b8ae37d35f7a196a2a490813ba519af1db010696226d67800",
+  "walletconflicts": [
+  ],
+  "time": 1593660676,
+  "timereceived": 1593660676,
+  "bip125-replaceable": "no",
+  "details": [
+    {
+      "address": "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      "category": "send",
+      "amount": -0.10000000,
+      "label": "",
+      "vout": 0,
+      "fee": -0.00014100,
+      "abandoned": false
+    },
+    {
+      "address": "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      "category": "receive",
+      "amount": 0.10000000,
+      "label": "",
+      "vout": 0
+    }
+  ],
+  "hex": "02000000000101f35b0fecd6c8156a46ec664a8a9577d8eaddc4a0f7782e000e17b5426e6d97760000000000feffffff02809698000000000016001491c8fda342a206c915a156c688e3ad7cc35af7fe6cfc013b000000001600147417e2d91f1dccfb9d4b5cb34f22518f94942ac40247304402200e0a0f09ccb9df23b1b303bc9aba4b97329a20304cd5eb5124f3d0be967d99600220586d4a084bb4d81352bb92471281666f54ba7fd37557878c10696222c38468f80121036e7d51749565e61b44f43da96b85d3e128f1271d12360aea5fe50c0441e5089b00000000"
+}
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest listunspent
+[
+]
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest getrawtransaction 06dfd110dc580e8b8ae37d35f7a196a2a490813ba519af1db010696226d67800
+02000000000101f35b0fecd6c8156a46ec664a8a9577d8eaddc4a0f7782e000e17b5426e6d97760000000000feffffff02809698000000000016001491c8fda342a206c915a156c688e3ad7cc35af7fe6cfc013b000000001600147417e2d91f1dccfb9d4b5cb34f22518f94942ac40247304402200e0a0f09ccb9df23b1b303bc9aba4b97329a20304cd5eb5124f3d0be967d99600220586d4a084bb4d81352bb92471281666f54ba7fd37557878c10696222c38468f80121036e7d51749565e61b44f43da96b85d3e128f1271d12360aea5fe50c0441e5089b00000000
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest decoderawtransaction 02000000000101f35b0fecd6c8156a46ec664a8a9577d8eaddc4a0f7782e000e17b5426e6d97760000000000feffffff02809698000000000016001491c8fda342a206c915a156c688e3ad7cc35af7fe6cfc013b000000001600147417e2d91f1dccfb9d4b5cb34f22518f94942ac40247304402200e0a0f09ccb9df23b1b303bc9aba4b97329a20304cd5eb5124f3d0be967d99600220586d4a084bb4d81352bb92471281666f54ba7fd37557878c10696222c38468f80121036e7d51749565e61b44f43da96b85d3e128f1271d12360aea5fe50c0441e5089b00000000
+{
+  "txid": "06dfd110dc580e8b8ae37d35f7a196a2a490813ba519af1db010696226d67800",
+  "hash": "d8098bc2e827a20243e0de5d873c62f34abcc271090eab677e05da235bdbea05",
+  "version": 2,
+  "size": 222,
+  "vsize": 141,
+  "weight": 561,
+  "locktime": 0,
+  "vin": [
+    {
+      "txid": "76976d6e42b5170e002e78f7a0c4ddead877958a4a66ec466a15c8d6ec0f5bf3",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "txinwitness": [
+        "304402200e0a0f09ccb9df23b1b303bc9aba4b97329a20304cd5eb5124f3d0be967d99600220586d4a084bb4d81352bb92471281666f54ba7fd37557878c10696222c38468f801",
+        "036e7d51749565e61b44f43da96b85d3e128f1271d12360aea5fe50c0441e5089b"
+      ],
+      "sequence": 4294967294
+    }
+  ],
+  "vout": [
+    {
+      "value": 0.10000000,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "0 91c8fda342a206c915a156c688e3ad7cc35af7fe",
+        "hex": "001491c8fda342a206c915a156c688e3ad7cc35af7fe",
+        "reqSigs": 1,
+        "type": "witness_v0_keyhash",
+        "addresses": [
+          "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2"
+        ]
+      }
+    },
+    {
+      "value": 9.89985900,
+      "n": 1,
+      "scriptPubKey": {
+        "asm": "0 7417e2d91f1dccfb9d4b5cb34f22518f94942ac4",
+        "hex": "00147417e2d91f1dccfb9d4b5cb34f22518f94942ac4",
+        "reqSigs": 1,
+        "type": "witness_v0_keyhash",
+        "addresses": [
+          "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95"
+        ]
+      }
+    }
+  ]
+}
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      0.00000000,
+      "bobo"
+    ]
+  ],
+  [
+    [
+      "bcrt1qdl5ucus78k3gf2aeprz3gv87e4p0tapcr4r76p",
+      0.00000000,
+      "change"
+    ],
+    [
+      "bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he",
+      26.76684490
+    ]
+  ],
+  [
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.00000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      9.89985900
+    ]
+  ],
+  [
+    [
+      "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      0.10000000,
+      ""
+    ]
+  ]
+]
 
