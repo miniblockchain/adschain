@@ -1,0 +1,156 @@
+ root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest getbalance
+99.99942190
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qf9l582u0c5edf0cmj8xjgfp483g3aepx9sgauq",
+      0.00000000
+    ],
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.20000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      0.00000000
+    ],
+    [
+      "bcrt1q06m6tqxezl2tja59wh0nam4s3pajgczh5dzhex",
+      9.59957700
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      50.00000000,
+      "bobo"
+    ]
+  ],
+  [
+    [
+      "bcrt1qdl5ucus78k3gf2aeprz3gv87e4p0tapcr4r76p",
+      0.00000000,
+      "change"
+    ],
+    [
+      "bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he",
+      26.76684490
+    ]
+  ],
+  [
+    [
+      "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      0.20000000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1q5y2nl0e6wcaqm45zhy5tfhunqufacwqs9fdf3h",
+      0.00000000,
+      ""
+    ]
+  ]
+]
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest getnewaddress
+bcrt1qrmx0nxn6gltz5gd3tt4xvdswwx9fcex459t5z4
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest sendtoaddress bcrt1qrmx0nxn6gltz5gd3tt4xvdswwx9fcex459t5z4  0.123
+52d0dce5e34b9ee7a7a0d066f533da1b9b6c151bb60f3eb5c68fbd6b1fbaf1d5
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1qrmx0nxn6gltz5gd3tt4xvdswwx9fcex459t5z4",
+      0.12300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qgg47wvvv8mau6x4l4khw3dy44veps7k34czaar",
+      0.07685900
+    ],
+    [
+      "bcrt1qf9l582u0c5edf0cmj8xjgfp483g3aepx9sgauq",
+      0.00000000
+    ],
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.00000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      0.00000000
+    ],
+    [
+      "bcrt1q06m6tqxezl2tja59wh0nam4s3pajgczh5dzhex",
+      9.59957700
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      50.00000000,
+      "bobo"
+    ]
+  ],
+  [
+    [
+      "bcrt1qdl5ucus78k3gf2aeprz3gv87e4p0tapcr4r76p",
+      0.00000000,
+      "change"
+    ],
+    [
+      "bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he",
+      26.76684490
+    ]
+  ],
+  [
+    [
+      "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      0.20000000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1q5y2nl0e6wcaqm45zhy5tfhunqufacwqs9fdf3h",
+      0.00000000,
+      ""
+    ]
+  ]
+]
+
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest generatetoaddress 1 bcrt1qrmx0nxn6gltz5gd3tt4xvdswwx9fcex459t5z4
+[
+  "5cb02e5d92a277e51e58c5a559102101eb7ae8b31507cd9aecef3e2604510995"
+]
+
+./check.sh
+
+{ "hash": "05452a9511d705e0e24ba8a9b1878043b43024045b2d870ffd5560b643696c0e", "confirmations": 4, "strippedsize": 214, "size": 250, "weight": 892, "height": 100, "version": 536870912, "versionHex": "20000000", "merkleroot": "030e0e645a288328a65132cf940be0409b440b5c81abc63e1b6a80713e8f3ca1", "tx": [ "030e0e645a288328a65132cf940be0409b440b5c81abc63e1b6a80713e8f3ca1" ], "time": 1593594434, "mediantime": 1593594433, "nonce": 0, "bits": "207fffff", "difficulty": 4.656542373906925e-10, "chainwork": "00000000000000000000000000000000000000000000000000000000000000ca", "nTx": 1, "previousblockhash": "245b662ecc68d682c35156b0650b4a78fb17433f9da2ddc64b49db79d0275079", "nextblockhash": "2f88d96f24095fdc78f123f7a4f797f046a6f9e6ba4a5f643fa3833d6c7c00da" }
+{ "hash": "2f88d96f24095fdc78f123f7a4f797f046a6f9e6ba4a5f643fa3833d6c7c00da", "confirmations": 3, "strippedsize": 214, "size": 250, "weight": 892, "height": 101, "version": 536870912, "versionHex": "20000000", "merkleroot": "fa46627c2c18902d536d90639de293e6a35343a5ac4a86e21b8c724923765b71", "tx": [ "fa46627c2c18902d536d90639de293e6a35343a5ac4a86e21b8c724923765b71" ], "time": 1593594434, "mediantime": 1593594433, "nonce": 0, "bits": "207fffff", "difficulty": 4.656542373906925e-10, "chainwork": "00000000000000000000000000000000000000000000000000000000000000cc", "nTx": 1, "previousblockhash": "05452a9511d705e0e24ba8a9b1878043b43024045b2d870ffd5560b643696c0e", "nextblockhash": "35679f1c4cedf609936d4ead808afbc12577d9e4764a2d7a506aad7ba57294cd" }
+{ "hash": "35679f1c4cedf609936d4ead808afbc12577d9e4764a2d7a506aad7ba57294cd", "confirmations": 2, "strippedsize": 779, "size": 1360, "weight": 3697, "height": 102, "version": 536870912, "versionHex": "20000000", "merkleroot": "69c699220dea801722073e784e4c0c265923b869b2feb003665962881ee17dea", "tx": [ "02e074eadd19b528af547e1db02597ad31ba5668646d2d1fb5fa6f41397b6eba", "76976d6e42b5170e002e78f7a0c4ddead877958a4a66ec466a15c8d6ec0f5bf3", "06dfd110dc580e8b8ae37d35f7a196a2a490813ba519af1db010696226d67800", "60d72e213dd9aebdc30f5dc18f6bb573a5a14454d092412a7fc892ff6b2ad6c0", "168dc5577adb4b48793842753425b8351bd41bd399c2b568ad8b137564499b9d", "4ef307e988f347591b7ad680524b9b3279bbd34855566b3b31d2ea9eb977848b" ], "time": 1593705315, "mediantime": 1593594433, "nonce": 0, "bits": "207fffff", "difficulty": 4.656542373906925e-10, "chainwork": "00000000000000000000000000000000000000000000000000000000000000ce", "nTx": 6, "previousblockhash": "2f88d96f24095fdc78f123f7a4f797f046a6f9e6ba4a5f643fa3833d6c7c00da", "nextblockhash": "5cb02e5d92a277e51e58c5a559102101eb7ae8b31507cd9aecef3e2604510995" }
+{ "hash": "5cb02e5d92a277e51e58c5a559102101eb7ae8b31507cd9aecef3e2604510995", "confirmations": 1, "strippedsize": 327, "size": 472, "weight": 1453, "height": 103, "version": 536870912, "versionHex": "20000000", "merkleroot": "9920765517f5a22210c74553621088e2b2caa2fb2c190d78f93526920a5b656a", "tx": [ "81f8a46d16a208739a990d1a9a492726c51a8db0722ccd11a21811c0843b9bed", "52d0dce5e34b9ee7a7a0d066f533da1b9b6c151bb60f3eb5c68fbd6b1fbaf1d5" ], "time": 1593706055, "mediantime": 1593594434, "nonce": 0, "bits": "207fffff", "difficulty": 4.656542373906925e-10, "chainwork": "00000000000000000000000000000000000000000000000000000000000000d0", "nTx": 2, "previousblockhash": "35679f1c4cedf609936d4ead808afbc12577d9e4764a2d7a506aad7ba57294cd" }
+
+
+
