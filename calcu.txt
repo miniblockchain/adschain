@@ -1,0 +1,175 @@
+
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qf9l582u0c5edf0cmj8xjgfp483g3aepx9sgauq",
+      9.79971800
+    ],
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.00000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      0.00000000,
+      "bobo"
+    ]
+  ],
+  [
+    [
+      "bcrt1qdl5ucus78k3gf2aeprz3gv87e4p0tapcr4r76p",
+      0.00000000,
+      "change"
+    ],
+    [
+      "bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he",
+      26.76684490
+    ]
+  ],
+  [
+    [
+      "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      0.20000000,
+      ""
+    ]
+  ]
+]
+ 
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest dumpprivkey bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2
+cP5m6dU7ky4p6st2TRzzKYbD7omWcYEKjchq9bP3BFCDEnsUhveY
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest dumpprivkey bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he
+cMssGD7gemWuMfdEUecb7g63nCCd7gFmoGtrWxfbK399ZGvpkUuS
+
+root@iZ6rvybeqdbil0Z:~# bitcoin-cli -regtest getbalance
+49.99956290
+
+
+
+# bitcoin-cli -regtest getnewaddress
+bcrt1qeknffuk5kc63uyvy7ku7jtqn89u6v7x3t6a5t3
+# bitcoin-cli -regtest getblockcount
+101
+root@iZ6rvybeqdbil0Z:~# alias b='bitcoin-cli -regtest'
+root@iZ6rvybeqdbil0Z:~# b getblockcount
+101
+
+
+
+root@iZ6rvybeqdbil0Z:~# b listaddressgroupings
+[
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qf9l582u0c5edf0cmj8xjgfp483g3aepx9sgauq",
+      9.79971800
+    ],
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.00000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      0.00000000,
+      "bobo"
+    ]
+  ],
+  [
+    [
+      "bcrt1qdl5ucus78k3gf2aeprz3gv87e4p0tapcr4r76p",
+      0.00000000,
+      "change"
+    ],
+    [
+      "bcrt1qj5w66yhjwfpzw24r5l8yjrxx6lsjk4rq6c73he",
+      26.76684490
+    ]
+  ],
+  [
+    [
+      "bcrt1qj8y0mg6z5grvj9dp2mrg3cad0np44al7k2s8l2",
+      0.20000000,
+      ""
+    ]
+  ]
+]
+
+
+
+
+root@iZ6rvybeqdbil0Z:~# b sendtoaddress bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp 0.2
+168dc5577adb4b48793842753425b8351bd41bd399c2b568ad8b137564499b9d
+
+root@iZ6rvybeqdbil0Z:~# b listaddressgroupings
+[
+  [
+    [
+      "bcrt1q86ghcdgtenels9gp72rf09d5kuv6svdm0vel0l",
+      13.23300000,
+      ""
+    ]
+  ],
+  [
+    [
+      "bcrt1qf9l582u0c5edf0cmj8xjgfp483g3aepx9sgauq",
+      0.00000000
+    ],
+    [
+      "bcrt1qwplr3jlyg0p924q4rul3peu7x6w4l2p8qnryxp",
+      0.20000000,
+      "cat"
+    ],
+    [
+      "bcrt1qwst79kglrhx0h82ttje57gj3372fg2ky00dn95",
+      0.00000000
+    ],
+    [
+      "bcrt1q06m6tqxezl2tja59wh0nam4s3pajgczh5dzhex",
+      9.59957700
+    ]
+  ],
+  [
+    [
+      "bcrt1qtvm7sq7lcaxsnp9ke2223d9uhwwwnkjd2pjxzu",
+      0.00000000,
+      "bobo"
+    ]
+  ],
+ 
+ 
+]
+
+# b getbalance
+49.99942190
+
+
+>>> 13.23300000+0.20000000+9.59957700+26.76684490+0.2
+49.9994219
