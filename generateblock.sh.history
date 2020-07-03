@@ -1,0 +1,124 @@
+  189  ps -eaf |grep bitcoind
+  190  ls
+  191  vi bitcoin.conf 
+  192  bitcoind -conf=bitcoin.conf -regtest
+  193  bitcoind -conf=bitcoin.conf -daemon -regtest
+  194  lsof |grep bitcoin
+  195  bitcoin-cli -regtest getblockcount
+  196  bitcoin-cli -regtest listunspent
+  197  bitcoin-cli -regtest getbalance
+  198  bitcoin-cli -regtest listwallets
+  199  bitcoin-cli -regtest getnewaddress
+  200  bitcoin-cli -regtest generatetoaddress 102 bcrt1qyrp3jlzfdfzpx5h9r3flw3c2zj9mehnc5z8qv9
+  201  bitcoin-cli -regtest listwallets
+  202* 
+  203  bitcoin-cli -regtest listaddressgroupings
+  204* bitcoin-cli -regt
+  205  bitcoin-cli -regtest listaddressgroupings
+  206  bitcoin-cli -regtest listtransactions
+  207  bitcoin-cli -regtest listunspent
+  208  bitcoin-cli -regtest help|more
+  209  bitcoin-cli -regtest getmempoolinfo
+  210  bitcoin-cli -regtest sendtoaddress getmempoolinfo 0.123
+  211  bitcoin-cli -regtest sendtoaddress bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2 0.123456789
+  212  bitcoin-cli -regtest help|grep sendtoaddress
+  213  bitcoin-cli -regtest sendtoaddress bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2 0.12345678
+  214  bitcoin-cli -regtest settxfee 0.01
+  215  bitcoin-cli -regtest sendtoaddress bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2 0.12345678
+  216  bitcoin-cli -regtest listtransactions|grep 681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6
+  217  pwd
+  218  vi check.sh
+  219  chmod a+x check.sh 
+  220  ./check.sh 
+  221  ./check.sh |grep #!/bin/bash  
+  222  blockno=`bitcoin-cli -regtest getblockcount`
+  223  echo $blockno
+  224  for((i=1;i<=$blockno;i++)); do         hh=`bitcoin-cli -regtest getblockhash $i`         tt=`bitcoin-cli -regtest getblock $hh`;         echo $tt 
+  225  history
+root@ubuntu:/home/ubuntu# ./check.sh |grep 681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6
+root@ubuntu:/home/ubuntu# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1qyrp3jlzfdfzpx5h9r3flw3c2zj9mehnc5z8qv9",
+      50.00000000,
+      ""
+    ],
+    [
+      "bcrt1q4zzgy5jd0vmwcvhcjmacuy85ld4vgshgdxfrw8",
+      49.87513322
+    ]
+  ],
+  [
+    [
+      "bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2",
+      0.12345678,
+      ""
+    ]
+  ]
+]
+root@ubuntu:/home/ubuntu# bitcoin-cli -regtest gettransaction 681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6
+{
+  "amount": 0.00000000,
+  "fee": -0.00141000,
+  "confirmations": 0,
+  "trusted": true,
+  "txid": "681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6",
+  "walletconflicts": [
+  ],
+  "time": 1593749185,
+  "timereceived": 1593749185,
+  "bip125-replaceable": "no",
+  "details": [
+    {
+      "address": "bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2",
+      "category": "send",
+      "amount": -0.12345678,
+      "label": "",
+      "vout": 0,
+      "fee": -0.00141000,
+      "abandoned": false
+    },
+    {
+      "address": "bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2",
+      "category": "receive",
+      "amount": 0.12345678,
+      "label": "",
+      "vout": 0
+    }
+  ],
+  "hex": "020000000001015b8784a49b658b23c8b987e74800f250d347d7c1d1424115a28bcf7f16756fee0000000000feffffff024e61bc000000000016001440660c48ddcf7b4c51639665a25d08ef9afa6f20ea69472901000000160014a88482524d7b36ec32f896fb8e10f4fb6ac442e802473044022016e933da8fb3e3dc922fd59c503115cd2bb4e87a0072bf3608da42ef05b0be5c0220433b330e26c25b921736a1ee31f82435b861b9504ad23951176eb3b25fa1f07f012102245040e75a0a1dc29227af1b86f387b98be6df688f94e6f7952d576651aa7b405b000000"
+}
+root@ubuntu:/home/ubuntu# bitcoin-cli -regtest listaddressgroupings
+[
+  [
+    [
+      "bcrt1qyrp3jlzfdfzpx5h9r3flw3c2zj9mehnc5z8qv9",
+      50.00000000,
+      ""
+    ],
+    [
+      "bcrt1q4zzgy5jd0vmwcvhcjmacuy85ld4vgshgdxfrw8",
+      49.87513322
+    ]
+  ],
+  [
+    [
+      "bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2",
+      0.12345678,
+      ""
+    ]
+  ]
+]
+root@ubuntu:/home/ubuntu# ls
+1  bitcoin.conf  bitcoin-master  b.tz  check.sh  snap
+root@ubuntu:/home/ubuntu# ./check.sh |grep bcrt1qgpnqcjxaeaa5c5trjej6yhgga7d05meqe3yau2
+root@ubuntu:/home/ubuntu# ./check.sh |grep 681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6
+root@ubuntu:/home/ubuntu# bitcoin-cli -regtest getblockcount 
+102
+root@ubuntu:/home/ubuntu# bitcoin-cli -regtest generatetoaddress 1 bcrt1qyrp3jlzfdfzpx5h9r3flw3c2zj9mehnc5z8qv9
+[
+  "56324651c5efca9dd6f79948049152cf8f50d832d7570d24cd517f17facdd313"
+]
+root@ubuntu:/home/ubuntu# ./check.sh |grep 681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6
+{ "hash": "56324651c5efca9dd6f79948049152cf8f50d832d7570d24cd517f17facdd313", "confirmations": 1, "strippedsize": 327, "size": 472, "weight": 1453, "height": 103, "version": 536870912, "versionHex": "20000000", "merkleroot": "ed1d97301ce3c0faabe28b54233465b9e19b4ae6e042f867d2a6c364d51632ac", "tx": [ "805649b83c984181e89b19b51f2c9491410df6e8eee75b597b4bb9226a00fadd", "681151a538d8d743c256c85d29333c2ceda29d85ef4cf7dd60da7e2730b4e1a6" ], "time": 1593750141, "mediantime": 1593748902, "nonce": 0, "bits": "207fffff", "difficulty": 4.656542373906925e-10, "chainwork": "00000000000000000000000000000000000000000000000000000000000000d0", "nTx": 2, "previousblockhash": "366cf6bcc198654729c48e4dd26eaf5d5280fdef8b7dd9312dc0efee9a33c1a7" }
