@@ -601,6 +601,71 @@ root@ubuntu:~# bitcoin-cli -regtest gettransaction b8ab5eb56f6b635eba4cdeb618190
   ],
   "hex": "0200000000010101a58575941d5d84df4d47294263d42dc1397ffae96ac50859cc3cd3c3423cd70000000000ffffffff0240420f00000000001600144082c296fa17c0a147a5edad89440daced1fd9bb806de72901000000160014785ed71ee74824e3c12621f72ee4facbaa0f9d410247304402204399b123576fc81f05708799369ca22256acded5a146d752002fad85def0cc740220628cb2f294e31d2c872a1188781fa886293692439af01ec5db4d50562e4a0bc50121031731cd94bde1e0622f0f7ae2ee60d0745e12935baabfd44742b1df3631bd3f8600000000"
 }
+
+
+root@ubuntu:/home/ubuntu/bitcoin-master/depends# bitcoin-cli -regtest createrawtransaction "[{\"txid\":\"d73c42c3d33ccc5908c56ae9fa7f39c12dd4634229474ddf845d1d947585a501\",\"vout\":0}]" "[{\"bcrt1qgzpv99h6zlq2z3a9akkcj3qd4nk3lkdmk65l45\":0.01},{\"bcrt1q0p0dw8h8fqjw8sfxy8mjae86ew4ql82p083f3d\":48.98},{\"data\":\"000202\"}]"
+020000000101a58575941d5d84df4d47294263d42dc1397ffae96ac50859cc3cd3c3423cd70000000000ffffffff0340420f00000000001600144082c296fa17c0a147a5edad89440daced1fd9bb808cf12301000000160014785ed71ee74824e3c12621f72ee4facbaa0f9d410000000000000000056a0300020200000000
+
+root@ubuntu:/home/ubuntu/bitcoin-master/depends# bitcoin-cli -regtest decoderawtransaction 020000000101a58575941d5d84df4d47294263d42dc1397ffae96ac50859cc3cd3c3423cd70000000000ffffffff0340420f00000000001600144082c296fa17c0a147a5edad89440daced1fd9bb808cf12301000000160014785ed71ee74824e3c12621f72ee4facbaa0f9d410000000000000000056a0300020200000000
+{
+  "txid": "94da71b0f65ff9dff8f56b42c2ffa4c4bb87f7c53ffb16759a66539b770c51db",
+  "hash": "94da71b0f65ff9dff8f56b42c2ffa4c4bb87f7c53ffb16759a66539b770c51db",
+  "version": 2,
+  "size": 127,
+  "vsize": 127,
+  "weight": 508,
+  "locktime": 0,
+  "vin": [
+    {
+      "txid": "d73c42c3d33ccc5908c56ae9fa7f39c12dd4634229474ddf845d1d947585a501",
+      "vout": 0,
+      "scriptSig": {
+        "asm": "",
+        "hex": ""
+      },
+      "sequence": 4294967295
+    }
+  ],
+  "vout": [
+    {
+      "value": 0.01000000,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "0 4082c296fa17c0a147a5edad89440daced1fd9bb",
+        "hex": "00144082c296fa17c0a147a5edad89440daced1fd9bb",
+        "reqSigs": 1,
+        "type": "witness_v0_keyhash",
+        "addresses": [
+          "bcrt1qgzpv99h6zlq2z3a9akkcj3qd4nk3lkdmk65l45"
+        ]
+      }
+    },
+    {
+      "value": 48.98000000,
+      "n": 1,
+      "scriptPubKey": {
+        "asm": "0 785ed71ee74824e3c12621f72ee4facbaa0f9d41",
+        "hex": "0014785ed71ee74824e3c12621f72ee4facbaa0f9d41",
+        "reqSigs": 1,
+        "type": "witness_v0_keyhash",
+        "addresses": [
+          "bcrt1q0p0dw8h8fqjw8sfxy8mjae86ew4ql82p083f3d"
+        ]
+      }
+    },
+    {
+      "value": 0.00000000,
+      "n": 2,
+      "scriptPubKey": {
+        "asm": "OP_RETURN 131584",
+        "hex": "6a03000202",
+        "type": "nulldata"
+      }
+    }
+  ]
+}
+
+
 root@ubuntu:~# 
 
 
