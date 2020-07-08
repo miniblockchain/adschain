@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@732047249 
-miniblockchain
-/
-regtest
-Private
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-regtest/0706.sh
-@732047249
-732047249 Create 0706.sh
-…
-Latest commit cc4be21 11 seconds ago
- History
- 1 contributor
-574 lines (549 sloc)  19.8 KB
-  
 
 
 
@@ -666,18 +634,3 @@ root@ubuntu:/home/ubuntu/bitcoin-master/depends# bitcoin-cli -regtest decoderawt
 }
 
 
-root@ubuntu:~# 
-
-
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
