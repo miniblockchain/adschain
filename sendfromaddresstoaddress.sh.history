@@ -633,4 +633,12 @@ root@ubuntu:/home/ubuntu/bitcoin-master/depends# bitcoin-cli -regtest decoderawt
   ]
 }
 
+root@ubuntu:~# bitcoin-cli -regtest createrawtransaction "[{\"txid\":\"d73c42c3d33ccc5908c56ae9fa7f39c12dd4634229474ddf845d1d947585a501\",\"vout\":0}]" "[{\"bcrt1qgzpv99h6zlq2z3a9akkcj3qd4nk3lkdmk65l45\":0.01},{\"bcrt1q0p0dw8h8fqjw8sfxy8mjae86ew4ql82p083f3d\":45.98},{\"data\":\"000202\"}, {\"data\":\"300303\"}]"
+error code: -8
+error message:
+Invalid parameter, duplicate key: data
+root@ubuntu:~# bitcoin-cli -regtest createrawtransaction "[{\"txid\":\"d73c42c3d33ccc5908c56ae9fa7f39c12dd4634229474ddf845d1d947585a501\",\"vout\":0}]" "[{\"bcrt1qgzpv99h6zlq2z3a9akkcj3qd4nk3lkdmk65l45\":0.01},{\"bcrt1q0p0dw8h8fqjw8sfxy8mjae86ew4ql82p083f3d\":45.98},{\"data\":\"000202\"}, {\"data1\":\"300303\"}]"
+error code: -5
+error message:
+Invalid Bitcoin address: data1
 
