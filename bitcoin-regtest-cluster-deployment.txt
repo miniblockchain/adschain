@@ -1,0 +1,46 @@
+bitcoin cluster deployment example :
+
+node 1
+192.168.0.108
+bitcoind -regtest -conf=/home/ubuntu/bob/bitcoin.conf -datadir=/home/ubuntu/bob -port=18555
+root@ubuntu:/home/ubuntu# cat /home/ubuntu/bob/bitcoin.conf
+daemon=1
+rpcuser=dylan
+rpcpassword=123456
+
+node 2
+192.168.0.110
+#/root/develop/bitcoin/src/bitcoind -regtest -conf=/root/develop/bitcoin/src/alice/bitcoin.conf -datadir=/root/develop/bitcoin/src/alice -connect=192.168.0.108:18555 -port=18333
+root@ubuntu-1:~/develop/bitcoin/src/alice/regtest# cat /root/develop/bitcoin/src/alice/bitcoin.conf
+daemon=1
+server=1
+rpcuser=dylan
+rpcpassword=123456
+
+node 2
+root@ubuntu-1:~/develop/bitcoin/src/alice/regtest# ../../bitcoin-cli -rpcport=18443 -rpcuser=dylan -rpcpassword=123456 getblockcount
+0
+root@ubuntu-1:~/develop/bitcoin/src/alice/regtest# ../../bitcoin-cli -rpcport=18443 -rpcuser=dylan -rpcpassword=123456 getconnectioncount
+1
+root@ubuntu-1:~/develop/bitcoin/src/alice/regtest# 
+
+
+
+bitcoin-cli -rpcport=18443 -rpcuser=dylan -rpcpassword=123456 encryptwallet hello
+wallet encrypted; The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.
+
+bitcoin-cli -rpcport=18443 -rpcuser=dylan -rpcpassword=123456 walletpassphrase hello 60
+
+
+http://tool.c7sky.com/password/
+
+
+bitcoin-cli -rpcport=18443 -rpcuser=dylan -rpcpassword=123456 signmessage bcrt1qd53pwdc2cphwv47ydkr9l5rdxcsmc7ww0nte3j 0ttEweeXUTg879Nkk9Krpv0HEWRVzF7mbDNn499JtH3uwsBnsojnE0BH3KqgiE6FVPitFNx0fOoTjyLMXrx2ufJsokUNpRgsThWCouZT869PQpH18bM54lDNgMPSnBqpKYs1pDU5uZ1ENDVcpYfxXF2VLENO1FaFn5trQ6
+
+vqXLEwMKOqAvcNgXmN8slfdNXVJkhc5RiDmARhTC2qb6esDQ2SyxcXnyg6klGZTNz1gaxGHfkCQ8sY9yI7zaCW9qAeEEdGXOhfqKT3mFqeIyIAvU1JkqG7aajG7Uw4z1GEipdnlf8Q4z5T95fmBlbyIXuqYMaCU0Cu6NCZA
+
+upZwICcxVHdTaiZuNVEHg9duo6oykSKAnSyhuN5RghF6ij1LjGAE9lBLXmtlY0z0hH8MAM8d9yU3YPAvgz4iATQCsSs7gU68at5z5UVPQy39WwzuHoS1VAW38WRJEgvaq1cREnF75jjZcIhNqfS7uBvISA9NhWXbKjv8k4A
+
+8huePz3lY7Zg7NgOmmLzwxin4IpchmfseY0w1Un7wNi1vMrC5H6d8EpxvYp13DF3patefBYGPSqlu5Yh7w1NVC9tw3JNSgc2CiPYzzPi2T4AkEqDaTwynUP86NclGX9C6nGdnaYvLQJhx6bh2sUJSOghi6K1wosoh36q68F
+
+v3ZHTUuicye474pu5OmT4JO7PJtiX9XMF0rnM8fZD4XeTlK3sSDVQ7ldNuPGVv3fxx8MppJEPX8tIwsBbIziVMMy013R2VgolwMKwxPPHz4D748C8DZGb5TRittaRBDWok5B8
