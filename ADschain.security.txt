@@ -1,0 +1,8 @@
+1
+openssl req -nodes -new -x509 -keyout server.key -out server.cert.
+2
+./bitcoind --server=1 --rpcuser=u --rpcpassword=p --regtest --ssl=1 --sslcert=/home/emil/openssl/server.cert --sslkey=/home/emil/openssl/server.key
+(Please adjust the paths according to yours)
+3
+curl --user u -k --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' https://127.0.0.1:18443/
+You should see that you just made a successful HTTPS request
